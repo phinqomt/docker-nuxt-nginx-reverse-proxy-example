@@ -50,6 +50,7 @@ export default {
   },
 
   server: {
+    //host: 'localhost/admin/',
     port: 3002,
   }
 }
