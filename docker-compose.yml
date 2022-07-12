@@ -1,0 +1,41 @@
+version: '3'
+
+networks:
+  nuxt-networks:
+    driver: bridge
+
+services:
+  nginx:
+    image: nginx
+    container_name: test1_nginx
+    restart: always
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+       - site1
+       - site2
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - nuxt-networks
+
+  site1:
+    restart: always
+    container_name: site1
+    build: ./site1/
+    command: "npm run dev"
+    ports:
+        - "3001:3001"
+    networks:
+      - nuxt-networks
+
+  site2:
+    restart: always
+    container_name: site2
+    build: ./site2/
+    command: "npm run dev"
+    ports:
+        - "3002:3002"
+    networks:
+      - nuxt-networks
