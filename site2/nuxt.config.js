@@ -52,5 +52,17 @@ export default {
   server: {
     //host: 'localhost/admin/',
     port: 3002,
+  },
+
+  router: {
+    base: '/admin/'
   }
+
+  // publicRuntimeConfig: {
+  //   baseURL: 'http://localhost/admin/'
+  // },
+
+  // privateRuntimeConfig: {
+  //   apiSecret: 'http://localhost/admin/'
+  // }
 }
